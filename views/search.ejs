@@ -1,0 +1,37 @@
+<%- include('partials/small-header') %>
+
+
+    <div id="container">
+        
+        <div class="main-header">
+            <!-- <button class="switch-to">blocks / table</button> -->
+            <h1 class="main-title">Result for : <%= searchQuery %></h1>
+        </div>
+
+       
+    <main class="main-content">
+        <% for (const coin of coins) { %>
+            
+            <div class="cases-content">
+                <a href="/coin/<%= coin.id %>" class="cases-link" title="See <%= coin.name %> infos">
+                    <p class="cases-header">#<%= coin.market_cap_rank %> <img src="<%= coin.image %>" alt="<%= coin.name %> Logo" class="coin-images"></p>
+                    <p>Name: <%= coin.name %></p>
+                    <p>Symbol: <%= coin.symbol.toUpperCase() %></p>
+                    <p>Price: <%= coin.current_price %> €</p>
+                    <p>Market Cap: <%= coin.market_cap %> €</p>
+                    <p>Volume 24h: <%= coin.total_volume %> €</p>
+                    <% if (coin.price_change_percentage_24h > 0) { %>
+                        <p>Price change 24h %: <span class="pos-percentage"><%= coin.price_change_percentage_24h %></span></p>
+                    <% } else { %>
+                        <p>Price change 24h %: <span class="neg-percentage"><%= coin.price_change_percentage_24h %></span></p>
+                    <% } %>
+                    <p>Circ supply: <%= coin.circulating_supply %></p>
+                </a>
+            </div>
+            <% } %>
+    </main>
+    
+    </div>
+
+
+<%- include('partials/footer') %>

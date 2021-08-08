@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.appDesc.appName %></title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <% if(typeof link !== 'undefined') { %>
+        <link rel="stylesheet" href="/css/<%= link %>">
+    <% } %>
+
+</head>
+<body>
+
+    <header id="header" class="header">
+        <a href="/" class="header__homelink"><%= locals.appDesc.appFirstname %><span><%= locals.appDesc.appLastname %></span></a>
+        <form action="/search" method="GET" class="header-form">
+            <input type="search" name="search" id="search" placeholder="Search cryptocurrency" value="" class="search-input">
+        </form>
+
+        <div class="header__info">
+            <button id="header__info-button" class="header__info-btn" title="Site infos">?</button>
+        </div>
+
+        <div id="panelElem">
+            <div class="panel-wrapper">
+                <button id="closePanel-button" title="Close">X</button>
+                <section>
+                    <p class="panel-wrapper panel-wrapper__section-title">general</p>
+                    <p>cryptocurrencies stats viewer <br><br> use search bar to find any coins (if listed in current top 100, ordered by market cap rank)</p>
+                </section>
+                <section>
+                    <p class="panel-wrapper panel-wrapper__section-title">about</p>
+                    <p>Hi there, <span>&#128075;</span> I'm Baptiste Champbenoit and I made this site.
+                    If you're as interested as I do in cryptos, you probably wants to see stats of
+                    your favorite cryptocurency just in two clics, fast and easy.
+                    That's the goal of this site. <br><br>
+
+                    I'm aware there is already tons of stuff like that on the web,
+                    but I wanted to do a simple, clear and interactive app with a nice interface,
+                    which goes straight forwards to the point.
+                    <br><br>
+                    Also, it is my very first project. If you’re interested in other stuffs I'm working on,
+                    you can check out my socials. <span>&#128071;</span>
+                    </p>
+                    <ul class="panel-socials-list">
+                        <li class="panel-socials-li">Twitter <a href="https://twitter.com/baptaste" target="_blank" class="panel-link">@baptaste</a></li>
+                        <li class="panel-socials-li">Github <a href="https://github.com/baptaste" target="_blank" class="panel-link">baptaste</a></li>
+                        <li class="panel-socials-li">Contact <a href="mailto:baptiste.champbenoit@gmail.com" target="_blank" class="panel-link">hello@rapidcoin.com</a></li>
+                        <li class="panel-socials-li">Site <a href="#" target="_blank" class="panel-link">baptistechampbenoit.com</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <p class="panel-wrapper panel-wrapper__section-title">tools</p>
+                    <ul>
+                        <li>express</li>
+                        <li>ejs</li>
+                        <li>coingecko.api</li>
+                        <li>sass</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+
+    </header>
+    <div id="container">
+
+        <div class="main-header">
+            <div class="main-header__description">
+                <p><%= locals.appDesc.appName %>, <span>easy and fast</span> way to find the coin you are looking for.</p>
+            </div>
+            <nav class="main-nav">
+                <% if (url === '/') { %>
+                    <a href="/" class="nav-link active">
+                        Top 100
+                    </a>
+                <% } else { %>
+                    <a href="/" class="nav-link">
+                        Top 100
+                    </a>
+                <% } %>
+
+                <% if (url === '/trends') { %>
+                    <a href="/trends" class="nav-link active">
+                        Trends
+                    </a>
+                <% } else { %>
+                    <a href="/trends" class="nav-link">
+                        Trends
+                    </a>
+                <% } %>
+
+                <% if (url === '/platforms') { %>
+                    <a href="/platforms" class="nav-link active">
+                        Finance platforms
+                    </a>
+                <% } else { %>
+                    <a href="/platforms" class="nav-link">
+                        Finance platforms
+                    </a>
+                <% } %>
+
+
+                <% if (url === '/') { %>
+                    <h1 class="h1 reverse">Current top 100, ordered by market cap rank</h1>
+                <% } %>
+
+                <% if (url === '/trends') { %>
+                    <h1 class="h1 reverse">7 most trendy coins in the last 24 hours</h1>
+                <% } %>
+
+                <% if (url === '/platforms') { %>
+                    <h1 class="h1 reverse">List of reliable finance platforms in order to buy or sell</h1>
+                <% } %>
+
+                <% if (url === '/') { %>
+                <a href="/table">
+                    <button class="switch-to reverse">table dashboard</button>
+                </a>
+                <% } else if (url === '/table') { %>
+                <a href="/">
+                    <button class="switch-to reverse">blocks dashboard</button>
+                </a>
+                <% } %>
+            </nav>
+        </div>
+
+        <main class="main-content">

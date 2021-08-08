@@ -1,0 +1,45 @@
+body {
+  color: black;
+}
+
+.notfound {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 430px;
+}
+
+.notfound h1 {
+  font-size: 10rem;
+}
+
+.notfound__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.notfound__text h2 {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  .notfound {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 350px;
+  }
+}
+/*# sourceMappingURL=404.css.map */

@@ -1,0 +1,60 @@
+<%- include('partials/small-header') %>
+
+<div id="container">
+
+    <div class="main-header">
+        <a href="/">
+            <button class="back-to-home">Back to homepage</button>
+        </a>
+    </div>
+
+    <main class="main-content coin-page">
+        <div class="coin-page__header">
+            <h1 class="coin-title"><%= coin.name %></h1>
+            <img src="<%= coin.image.large %>" alt="<%= coin.name %> Logo" class="coin-images">
+        </div>
+
+        <div class="cases-content desc">
+            <p>Market rank: #<%= coin.market_cap_rank %></p>
+            <p>Symbol: <%= coin.symbol.toUpperCase() %></p>
+            <% if (coin.genesis_date) { %>
+                <p>Birth: <%= coin.genesis_date %></p>
+            <% } %>
+            <p>Price: <%= coin.market_data.current_price.eur %> €</p>
+            <p>Market Cap: <%= coin.market_data.market_cap.eur %> €</p>
+            <p>Volume 24h: <%= coin.market_data.total_volume.eur %> €</p>
+            <p>Circ supply: <%= coin.market_data.circulating_supply %></p>
+            <% if (coin.market_data.price_change_percentage_24h > 0) { %>
+                <p>Price change 24h %: <span class="pos-percentage"><%= coin.market_data.price_change_percentage_24h %></span></p>
+            <% } else { %>
+                <p>Price change 24h %: <span class="neg-percentage"><%= coin.market_data.price_change_percentage_24h %></span></p>
+            <% } %>
+            <% if (coin.market_data.price_change_percentage_7d > 0) { %>
+                <p>Price change 7d %: <span class="pos-percentage"><%= coin.market_data.price_change_percentage_7d %></span></p>
+            <% } else { %>
+                <p>Price change 7d %: <span class="neg-percentage"><%= coin.market_data.price_change_percentage_7d %></span></p>
+            <% } %>
+            <% if (coin.market_data.price_change_percentage_30d > 0) { %>
+                <p>Price change 1 month %: <span class="pos-percentage"><%= coin.market_data.price_change_percentage_30d %></span></p>
+            <% } else { %>
+                <p>Price change 1 month %: <span class="neg-percentage"><%= coin.market_data.price_change_percentage_30d %></span></p>
+            <% } %>
+            <% if (coin.market_data.price_change_percentage_200d > 0) { %>
+                <p>Price change 6 months %: <span class="pos-percentage"><%= coin.market_data.price_change_percentage_200d %></span></p>
+            <% } else { %>
+                <p>Price change 6 months %: <span class="neg-percentage"><%= coin.market_data.price_change_percentage_200d %></span></p>
+            <% } %>
+            <p>Official site: <a href="<%= coin.links.homepage[0] %>" class="coin-website" title="Redirection"><%= coin.links.homepage[0] %></a></p>
+
+        </div>
+
+        <div class="coin-desc">
+            <h2 class="coin-desc__title">About <%= coin.name %></h2>
+            <p class="coin-desc__text"><%= description %></p>
+        </div>
+    </main>
+</div>
+
+
+
+<%- include('partials/footer') %>

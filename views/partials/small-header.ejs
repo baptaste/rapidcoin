@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= locals.appDesc.appName %></title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <% if(typeof link !== 'undefined') { %>
+        <link rel="stylesheet" href="/css/<%= link %>">
+    <% } %>
+    
+</head>
+<body>
+
+    <header id="header" class="header">
+        <a href="/" class="header__homelink"><%= locals.appDesc.appFirstname %><span><%= locals.appDesc.appLastname %></span></a>
+        <form action="/search" method="GET" class="header-form">
+            <!-- <label for="search" class="search-label">Search</label> -->
+            <input type="search" name="search" id="search" placeholder="Search cryptocurrency" value="" class="search-input">
+            <!-- <button class="search-button">Enter</button> -->
+        </form>
+        
+        <%#  
+        <button id="dark-light-btn" class="light-button">
+            Light
+        </button> 
+        %>
+        
+    </header>
+    <div id="container">
+
+        <main class="main-content">
+
+            

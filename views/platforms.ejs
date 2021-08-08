@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<div class="platform__wrapper">
+<% for (const platform of platforms) { %>
+    <ul class="platforms-list">
+        <li class="platform-item platform-name"><%= platform.name %></li>
+        <li class="platform-item"><%= platform.category %></li>
+        <li class="platform-item">
+        <% if (platform.centralized === true) { %>
+            Centralized
+        <% } else { %>
+            Decentralized
+        <% } %>
+        </li>
+        <li class="platform-item"><a href="<%= platform.website_url %>" class="coin-website platform-website"><%= platform.website_url %></a></li>
+    </ul>
+<% } %>
+</div>
+
+<%- include('partials/footer') %>

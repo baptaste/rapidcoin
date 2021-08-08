@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Market Cap</th>
+                    <th>Volume 24h</th>
+                    <th>Circulating supply</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const coin of coins) { %>
+
+                <tr onclick="window.location='/coin/<%= coin.id %>'" title="See <%= coin.name %> infos" class="table-link">
+                    <td><%= coin.market_cap_rank %></td>
+                    <td><span><img src="<%= coin.image %>" alt="<%= coin.name %> Logo" class="coin-images"></span> <%= coin.name %></td>
+                    <td><%= coin.symbol.toUpperCase() %></td>
+                    <td><%= coin.current_price %> €</td>
+                    <td><%= coin.market_cap %> €</td>
+                    <td><%= coin.total_volume %> €</td>
+                    <td><%= coin.circulating_supply %></td>
+                </tr>
+
+                <% } %>
+            </tbody>
+        </table>
+
+        <button id="back-to-top__button" class="switch-to switch-to__top">
+            back to top
+        </button>
+
+<%- include('partials/footer') %>

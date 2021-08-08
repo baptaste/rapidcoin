@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<% let index = 1 %>
+
+<% for (const coin of coins) { %>
+
+    <div class="cases-content cases-content__trending">
+        <a href="/coin/<%= coin.item.id %>" class="cases-link" title="See <%= coin.name %> infos">
+            <p class="cases-header">#<%= index++ %>
+                <img src="<%= coin.item.thumb %>" alt="<%= coin.item.name %> Logo" class="coin-images">
+            </p>
+            <p>Name: <%= coin.item.name %></p>
+            <p>Symbol: <%= coin.item.symbol %></p>
+            <p>Price-BTC: <%= coin.item.price_btc %></p>
+            <p>Market Cap Rank: <%= coin.item.market_cap_rank %></p>
+        </a>
+    </div>
+
+<% } %>
+
+
+<%- include('partials/footer') %>
